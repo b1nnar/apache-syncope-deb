@@ -1,0 +1,6 @@
+#!/bin/sh
+chown -R tomcat7.tomcat7 /opt/syncope
+su - postgres -c "psql -c \"create role syncope with login password 'syncope'\""
+su - postgres -c "psql -c \"create database syncope owner syncope\""
+service tomcat7 restart
+echo "Thank you for installing Apache Syncope using this debian package!"

@@ -1,0 +1,8 @@
+Package: apache-syncope
+Version: [[syncope.version]]
+Section: misc
+Priority: optional
+Architecture: all
+Description: Apache Syncope debian package.
+Depends: [[debian.dependencies]]
+Maintainer: Piticas Alexandru Catalin <piticas.alexandru@gmail.com>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.apache.syncope</groupId>
+        <artifactId>syncope</artifactId>
+        <version>1.1.3</version>
+    </parent>
+
+    <properties>
+        <syncope.version>1.1.3</syncope.version>
+        <secretKey>com.docprocess.apache-syncope-deb</secretKey>
+        <connid.location>/opt/syncope/bundles</connid.location>
+        <log.directory>/opt/syncope/log</log.directory>
+        <tomcat-jdbc.version>7.0.28</tomcat-jdbc.version>
+        <postgresql-jdbc.version>9.1-901.jdbc4</postgresql-jdbc.version>
+        <jdbc.location>/usr/share/tomcat7/lib</jdbc.location>
+        <jdeb.version>1.0</jdeb.version>
+        <maven-resources-plugin.version>2.3</maven-resources-plugin.version>
+        <webapp.deployLocation>/var/lib/tomcat7/webapps</webapp.deployLocation>
+        <debian.dependencies>tomcat7,postgresql-9.1</debian.dependencies>
+        <console.finalName>console</console.finalName>
+        <core.finalName>syncope</core.finalName>
+        <packager.finalName>syncope-packager</packager.finalName>
+    </properties>
+
+    <groupId>com.docprocess</groupId>
+    <artifactId>apache-syncope-deb</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Apache Syncope :: Debian Packager</name>
+    <description>Apache Syncope - Debian Packager</description>
+
+
+    <dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.syncope</groupId>
+            <artifactId>syncope-client</artifactId>
+            <version>${syncope.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.syncope</groupId>
+            <artifactId>syncope-build-tools</artifactId>
+            <version>${syncope.version}</version>
+            <type>war</type>
+            <scope>test</scope>
+        </dependency>
+            
+        <dependency>
+            <groupId>org.apache.syncope</groupId>
+            <artifactId>syncope-core</artifactId>
+            <version>${syncope.version}</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.syncope</groupId>
+            <artifactId>syncope-core</artifactId>
+            <version>${syncope.version}</version>
+            <classifier>classes</classifier>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.syncope</groupId>
+            <artifactId>syncope-console</artifactId>
+            <version>${syncope.version}</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.syncope</groupId>
+            <artifactId>syncope-console</artifactId>
+            <version>${syncope.version}</version>
+            <classifier>classes</classifier>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    </dependencyManagement>
+    
+    <build>
+    
+        <pluginManagement>
+
+          <plugins>
+            <!-- Disable LICENSE / NOTICE inclusion: see SYNCOPE-84 -->
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-war-plugin</artifactId>
+              <inherited>false</inherited>
+              <configuration>
+                <webResources>
+                  <resource>
+                    <directory>src/main/webapp</directory>
+                    <includes>
+                      <include>**/*.jsp</include>
+                    </includes>
+                    <filtering>true</filtering>
+                  </resource>
+                </webResources>
+              </configuration>
+            </plugin>
+          </plugins>
+
+        </pluginManagement>
+
+        <plugins>
+
+          <!-- Disable legal check for generated projects: see SYNCOPE-84 -->
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>ianal-maven-plugin</artifactId>
+            <inherited>true</inherited>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>verify-legal-files</goal>
+                </goals>
+                <phase>none</phase>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.rat</groupId>
+            <artifactId>apache-rat-plugin</artifactId>
+            <inherited>true</inherited>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>check</goal>
+                </goals>
+                <phase>none</phase>
+              </execution>
+            </executions>
+          </plugin>
+
+        </plugins>
+
+    </build>
+
+    <modules>
+        <module>core</module>
+        <module>console</module>
+        <module>packager</module>
+    </modules>
+
+</project>
