@@ -139,10 +139,10 @@
             <phase>pre-integration-test</phase>
             <configuration>
               <target>
-                <unzip src="${project.build.directory}/${project.build.finalName}.war" dest="${cargo.run.dir}"/>
-                <copy file="${project.build.directory}/test-classes/db.jsp" todir="${cargo.run.dir}"/>
+                <unzip src="${project.build.directory}/${project.build.finalName}.war" dest="${cargo.run.dir}" />
+                <copy file="${project.build.directory}/test-classes/db.jsp" todir="${cargo.run.dir}" />
                 <copy todir="${cargo.run.dir}/WEB-INF/classes" includeEmptyDirs="false">
-                  <fileset dir="${project.build.directory}/test-classes"/>
+                  <fileset dir="${project.build.directory}/test-classes" />
                 </copy>
               </target>
             </configuration>
@@ -155,7 +155,7 @@
             <phase>pre-integration-test</phase>
             <configuration>
               <target>
-                <copy file="${project.build.directory}/test-classes/test.csv" todir="${test.csvdir.path}" overwrite="true"/>
+                <copy file="${project.build.directory}/test-classes/test.csv" todir="${test.csvdir.path}" overwrite="true" />
               </target>    
             </configuration>
             <goals>
