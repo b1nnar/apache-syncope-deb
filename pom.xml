@@ -24,16 +24,23 @@
         <console.finalName>console</console.finalName>
         <core.finalName>syncope</core.finalName>
         <packager.finalName>syncope-packager</packager.finalName>
+        <maven-release-plugin.version>2.3.2</maven-release-plugin.version>
     </properties>
 
     <groupId>com.docprocess</groupId>
     <artifactId>apache-syncope-deb</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Apache Syncope :: Debian Packager</name>
     <description>Apache Syncope - Debian Packager</description>
 
+    <scm>
+        <connection>scm:git:git@github.com:apiticas/apache-syncope-deb.git</connection>
+        <url>scm:git:git@github.com:apiticas/apache-syncope-deb.git</url>
+        <developerConnection>scm:git:git@github.com:apiticas/apache-syncope-deb.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 
     <dependencyManagement>
 
@@ -138,6 +145,17 @@
             </executions>
           </plugin>
 
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-release-plugin</artifactId>
+            <version>${maven-release-plugin.version}</version>
+            <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                    <pushChanges>false</pushChanges>
+                    <localCheckout>true</localCheckout>
+            </configuration>
+          </plugin>
+
         </plugins>
 
     </build>
@@ -147,5 +165,27 @@
         <module>console</module>
         <module>packager</module>
     </modules>
+
+    <distributionManagement>
+        <repository>
+            <id>docprocess-dx-snapshots</id>
+            <name>DocProcess Snapshots</name>
+            <url>http://dev.doc-process.com/nexus/content/repositories/dx-snapshots</url>
+        </repository>
+        <snapshotRepository>
+            <id>docprocess-dx-releases</id>
+            <name>DocProcess Releases</name>
+            <url>http://dev.doc-process.com/nexus/content/repositories/dx-releases</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <developers>
+        <developer>
+            <id>apiticas</id>
+            <name>Piticas Alexandru</name>
+            <email>piticas.alexandru@gmail.com</email>
+            <organization>DocProcess</organization>
+        </developer>
+    </developers>
 
 </project>
