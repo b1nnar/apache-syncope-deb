@@ -11,7 +11,6 @@
 
     <properties>
         <syncope.version>1.1.4</syncope.version>
-        <secretKey>com.docprocess.apache-syncope-deb</secretKey>
         <connid.location>file:/opt/syncope/bundles</connid.location>
         <log.directory>/opt/syncope/log</log.directory>
         <tomcat-jdbc.version>7.0.28</tomcat-jdbc.version>
@@ -26,6 +25,16 @@
         <packager.finalName>syncope-packager</packager.finalName>
         <maven-release-plugin.version>2.4.1</maven-release-plugin.version>
         <maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
+
+        <!--security configuration in core/src/main/resources/META-INF/security.properties-->
+        <security.username>admin</security.username>
+        <security.password>5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8</security.password>
+        <security.passwordAlgorithm>SHA1</security.passwordAlgorithm>
+        <security.secretKey>com.docprocess.apache-syncope-deb</security.secretKey>
+
+        <!--database configuration in core/src/main/resources/META-INF/persistence.properties-->
+        <database.username>syncope</database.username>
+        <database.password>password</database.password>
     </properties>
 
     <groupId>com.docprocess</groupId>

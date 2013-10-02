@@ -1,9 +1,11 @@
 #!/bin/sh
+DB_USERNAME=[[database.username]]
+DB_PASSWORD=[[database.password]]
 echo "Changing ownership to tomcat7 for /opt/syncope directory"
 chown -R tomcat7.tomcat7 /opt/syncope
 echo "Creating PostgreSQL role for syncope. If already exists, the error message should be ignored"
-su - postgres -c "psql -c \"create role syncope with login password 'syncope'\""
+su - postgres -c "psql -c \"create role $DB_USERNAME with login password '$DB_PASSWORD'\""
 echo "Creating PostgreSQL database for syncope. If already exists, the error message should be ignored"
-su - postgres -c "psql -c \"create database syncope owner syncope\""
+su - postgres -c "psql -c \"create database syncope owner $DB_USERNAME\""
 service tomcat7 restart
 echo "Thank you for installing Apache Syncope using this debian package!"
