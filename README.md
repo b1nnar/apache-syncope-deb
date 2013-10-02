@@ -7,7 +7,11 @@ Apache Syncope - Debian Packager
 ~~~
 $ mvn clean package
 ~~~
-and find the debian package in ${project.build.directory}.
+which configures the default console credentials (admin/password), or
+~~~
+$ mvn clean package -Dsecurity.username=username -Dsecurity.password=[SHA1(password)]  
+~~~
+to change them (replace [SHA1(password)] with the SHA1 encryption of your password).
 
 * Configure you java environment in /etc/default/tomcat7:
 ~~~
@@ -24,9 +28,12 @@ and  add
 ~~~
 in $CATALINA_HOME/conf/context.xml.
 
-* Install Apache Syncope:
+* Install Apache Syncope using the maven-generated debian package in ${project.build.directory}
 ~~~
-sudo dpkg -i apache-syncope-${syncope.version}.deb
+sudo dpkg -i apache-syncope-${syncope.version}~debv${project-version}.deb
 ~~~
 
-* You can now access the web interface at http://localhost:8080/console and login with admin/password.
+* You can now access the web interface at 
+~~~
+http://localhost:8080/console
+~~~
