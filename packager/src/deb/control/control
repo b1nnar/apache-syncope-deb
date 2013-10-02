@@ -1,5 +1,5 @@
 Package: apache-syncope
-Version: [[syncope.version]]
+Version: [[syncope.version]]~debv[[project.version]]
 Section: misc
 Priority: optional
 Architecture: all

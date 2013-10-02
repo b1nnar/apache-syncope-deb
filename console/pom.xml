@@ -153,63 +153,6 @@
             </executions>
           </plugin>
 
-          <!--<plugin>-->
-            <!--<groupId>org.codehaus.cargo</groupId>-->
-            <!--<artifactId>cargo-maven2-plugin</artifactId>-->
-            <!--<inherited>true</inherited>-->
-            <!--<configuration>-->
-              <!--<container>-->
-                <!--<timeout>500000</timeout>-->
-                <!--<dependencies>-->
-                  <!--<dependency>-->
-                    <!--<groupId>com.h2database</groupId>-->
-                    <!--<artifactId>h2</artifactId>-->
-                  <!--</dependency>-->
-                <!--</dependencies>-->
-                <!--<systemProperties>-->
-                  <!--<syncope.console.configuration>${project.build.directory}/test-classes/configuration.properties</syncope.console.configuration>-->
-                <!--</systemProperties>-->
-              <!--</container>-->
-              <!--<configuration>-->
-                <!--<type>standalone</type>-->
-                <!--<properties>-->
-                  <!--<cargo.servlet.port>${cargo.servlet.port}</cargo.servlet.port>-->
-                  <!--<cargo.jvmargs>-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m</cargo.jvmargs>-->
-                <!--</properties>-->
-              <!--</configuration>-->
-              <!--<deployables>-->
-                <!--<deployable>-->
-                  <!--<location>${cargo.run.dir}</location>-->
-                  <!--<properties>-->
-                    <!--<context>syncope</context>-->
-                  <!--</properties>-->
-                <!--</deployable>-->
-                <!--<deployable>-->
-                  <!--<location>${project.build.directory}/${project.build.finalName}.war</location>-->
-                  <!--<properties>-->
-                    <!--<context>syncope-console</context>-->
-                  <!--</properties>-->
-                <!--</deployable>-->
-                <!--<deployable>-->
-                  <!--<groupId>org.connid.bundles.soap</groupId>-->
-                  <!--<artifactId>wssample</artifactId>-->
-                  <!--<type>war</type>-->
-                  <!--<properties>-->
-                    <!--<context>wssample</context>-->
-                  <!--</properties>-->
-                <!--</deployable>-->
-                <!--<deployable>-->
-                  <!--<groupId>org.apache.syncope</groupId>-->
-                  <!--<artifactId>syncope-build-tools</artifactId>-->
-                  <!--<type>war</type>-->
-                  <!--<properties>-->
-                    <!--<context>syncope-build-tools</context>-->
-                  <!--</properties>-->
-                <!--</deployable>-->
-              <!--</deployables>-->
-            <!--</configuration>-->
-          <!--</plugin>-->
-
       </plugins>
 
         <resources>
@@ -231,17 +174,5 @@
         </testResources>
 
     </build>
-
-    <!--<profiles>-->
-        <!--<profile>-->
-            <!--<id>embedded</id>-->
-            <!--<properties>-->
-                <!--<skipTests>true</skipTests>-->
-            <!--</properties>-->
-            <!--<build>-->
-                <!--<defaultGoal>clean verify cargo:run</defaultGoal>-->
-            <!--</build>-->
-        <!--</profile>-->
-    <!--</profiles>-->
 
 </project>

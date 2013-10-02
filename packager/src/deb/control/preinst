@@ -1,5 +1,8 @@
 #!/bin/sh
-mkdir /opt/syncope
-mkdir /opt/syncope/bundles
-mkdir /opt/syncope/log
+echo "Creating syncope directory in /opt, if not created already"
+mkdir -p /opt/syncope
+echo "Creating syncope/bundles directory in /opt/syncope, if not created already"
+mkdir -p /opt/syncope/bundles
+echo "Creating syncope/log directory in /opt/syncope"
+mkdir -p /opt/syncope/log
 

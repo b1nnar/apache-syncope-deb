@@ -71,7 +71,9 @@
                             <goal>jdeb</goal>
                         </goals>
                         <configuration>
-                            <deb>${project.parent.build.directory}/apache-syncope-${syncope.version}.deb</deb>
+                            <deb>
+                        ${project.parent.build.directory}/apache-syncope-${syncope.version}~debv${project.version}.deb
+                            </deb>
                             <verbose>true</verbose>
                             <controlDir>${project.basedir}/src/deb/control</controlDir>
                             <dataSet>
