@@ -28,3 +28,5 @@ in $CATALINA_HOME/conf/context.xml.
 ~~~
 sudo dpkg -i apache-syncope-${syncope.version}.deb
 ~~~
+
+* You can now access the web interface at http://localhost:8080/console and login with admin/password.
