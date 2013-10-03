@@ -39,7 +39,7 @@
 
     <groupId>com.docprocess</groupId>
     <artifactId>apache-syncope-deb</artifactId>
-    <version>0.2</version>
+    <version>0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Apache Syncope :: Debian Packager</name>
