@@ -13,11 +13,6 @@ $ mvn clean package -Dsecurity.username=username -Dsecurity.password=[SHA1(passw
 ~~~
 to change them (replace [SHA1(password)] with the SHA1 encryption of your password).
 
-* Configure you java environment in /etc/default/tomcat7:
-~~~
-JAVA_OPTS="-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server -Xms1536m -Xmx1536m -XX:NewSize=256m -XX:MaxNewSize=256m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:+DisableExplicitGC"
-~~~
-
 * Uncomment 
 ~~~
 <Manager pathname="" /> 
