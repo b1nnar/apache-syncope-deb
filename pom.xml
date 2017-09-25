@@ -30,26 +30,25 @@
         <security.username>admin</security.username>
         <security.password>5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8</security.password>
         <security.passwordAlgorithm>SHA1</security.passwordAlgorithm>
-        <security.secretKey>com.docprocess.apache-syncope-deb</security.secretKey>
+        <security.secretKey>ro.b1nnar.projects.apache-syncope-deb</security.secretKey>
 
         <!--database configuration in core/src/main/resources/META-INF/persistence.properties-->
         <database.username>syncope</database.username>
         <database.password>password</database.password>
     </properties>
 
-    <groupId>com.docprocess</groupId>
+    <groupId>ro.b1nnar.projects</groupId>
     <artifactId>apache-syncope-deb</artifactId>
     <version>0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Apache Syncope :: Debian Packager</name>
-    <description>Generates a debian package for installing Apache Syncope web application with Apache Tomcat 7
-        servlet container</description>
+    <description>Generates a debian package for installing Apache Syncope web application with Apache Tomcat 7 servlet container</description>
 
     <scm>
-        <connection>scm:git:git@github.com:apiticas/apache-syncope-deb.git</connection>
-        <url>scm:git:git@github.com:apiticas/apache-syncope-deb.git</url>
-        <developerConnection>scm:git:git@github.com:apiticas/apache-syncope-deb.git</developerConnection>
+        <connection>scm:git:https://github.com/b1nnar/apache-syncope-deb.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:b1nnar/apache-syncope-deb.git</developerConnection>
+        <url>https://github.com/b1nnar/apache-syncope-deb</url>
         <tag>v0.2</tag>
     </scm>
 
@@ -186,25 +185,12 @@
         <module>packager</module>
     </modules>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>docprocess-dx-snapshots</id>
-            <name>DocProcess Snapshots</name>
-            <url>http://dev.doc-process.com/nexus/content/repositories/dx-snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>docprocess-dx-releases</id>
-            <name>DocProcess Releases</name>
-            <url>http://dev.doc-process.com/nexus/content/repositories/dx-releases</url>
-        </repository>
-    </distributionManagement>
-
     <developers>
         <developer>
-            <id>apiticas</id>
-            <name>Piticas Alexandru</name>
+            <id>b1nnar</id>
+            <name>Alexandru</name>
             <email>piticas.alexandru@gmail.com</email>
-            <organization>DocProcess</organization>
+            <organization>b1nnar</organization>
         </developer>
     </developers>
 

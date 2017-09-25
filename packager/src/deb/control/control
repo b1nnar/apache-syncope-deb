@@ -5,4 +5,4 @@ Priority: optional
 Architecture: all
 Description: Apache Syncope debian package.
 Depends: [[debian.dependencies]]
-Maintainer: Piticas Alexandru Catalin <piticas.alexandru@gmail.com>
+Maintainer: Alexandru <piticas.alexandru@gmail.com>

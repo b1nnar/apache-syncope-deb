@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.docprocess</groupId>
+    <groupId>ro.b1nnar.projects</groupId>
     <artifactId>apache-syncope-deb</artifactId>
     <version>0.3-SNAPSHOT</version>
   </parent>
